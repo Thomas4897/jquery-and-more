@@ -1,5 +1,9 @@
 //! JQuery equivalent of document.createElement
-const div = $("<div>Hello World</div>");
+const div = $("<div id='hello-world'>Hello World</div>");
+
+const divCanvas = $("<div> <canvas id='myChart'></canvas> </div>");
+
+const divCanvas2 = $("<div> <canvas id='myChart2'></canvas> </div>");
 
 //! JQuery equivalent of document.querySelector
 const body = $("body");
@@ -7,15 +11,31 @@ const body = $("body");
 //! JQuery equivalent of .appendChild()
 body.append(div);
 
+body.append(divCanvas);
+
+body.append(divCanvas2);
+
 //! JQuery equivalent of .addEventlistener()
 div.on("click", () => alert("Hello World"));
 
+//! JQuery css styling
+$("div").css("margin", "20px");
+
+$("body").css({
+	margin: "20px",
+	backgroundColor: "black",
+	color: "white",
+});
+
+$("#hello-world").css({
+	display: "flex",
+	justifyContent: "center",
+	color: "white",
+	textDecoration: "underline",
+	cursor: "pointer",
+});
+
 //? ================================================================
-
-//! JQuery equivalent of document.createElement
-const divCanvas = $("<div> <canvas id='myChart'></canvas> </div>");
-
-body.append(divCanvas);
 
 const labels = ["January", "February", "March", "April", "May", "June"];
 const data = {
@@ -23,26 +43,38 @@ const data = {
 	datasets: [
 		{
 			label: "My First dataset",
-			backgroundColor: "rgb(255, 99, 132)",
-			borderColor: "rgb(255, 99, 132)",
+			backgroundColor: "white",
+			borderColor: "red",
 			data: [0, 10, 5, 2, 20, 30, 45],
 		},
 	],
 };
 
+const options = {
+	scales: {
+		y: {
+			grid: {
+				color: "white",
+			},
+		},
+		x: {
+			grid: {
+				color: "white",
+			},
+		},
+	},
+};
+
 const config = {
 	type: "line",
 	data: data,
-	options: {},
+	options: options,
 };
 
+//! JQuery equivalent of adding to tags
 const myChart = new Chart($("#myChart"), config);
 
 //? ================================================================
-
-const divCanvas2 = $("<div> <canvas id='myChart2'></canvas> </div>");
-
-body.append(divCanvas2);
 
 const data2 = {
 	labels: ["Red", "Blue", "Yellow"],
@@ -65,4 +97,5 @@ const config2 = {
 	data: data2,
 };
 
+//! JQuery equivalent of adding to tags
 const createDoughnut = new Chart($("#myChart2"), config2);
