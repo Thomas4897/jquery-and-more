@@ -1,9 +1,15 @@
 //! JQuery equivalent of document.createElement
-const div = $("<div id='hello-world'>Hello World</div>");
+const div = $(`<div id='hello-world'>
+                    Hello World
+                </div>`);
 
-const divCanvas = $("<div> <canvas id='myChart'></canvas> </div>");
+const divCanvas = $(`<div> 
+                        <canvas id='myChart'></canvas> 
+                    </div>`);
 
-const divCanvas2 = $("<div> <canvas id='myChart2'></canvas> </div>");
+const divCanvas2 = $(`<div> 
+                        <canvas id='myChart2'></canvas> 
+                    </div>`);
 
 //! JQuery equivalent of document.querySelector
 const body = $("body");
